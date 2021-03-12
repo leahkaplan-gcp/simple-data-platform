@@ -1,0 +1,302 @@
+[
+  {
+    "name": "SiteId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SiteCode",
+    "type": "STRING"
+  },
+  {
+    "name": "SiteName",
+    "type": "STRING"
+  },
+  {
+    "name": "ShiftStartDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "RecordId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "CycleStartDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "CycleEndDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "TruckMachineId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "TruckMachine",
+    "type": "STRING"
+  },
+  {
+    "name": "TruckMachineModel",
+    "type": "STRING"
+  },
+  {
+    "name": "TruckMachineType",
+    "type": "STRING"
+  },
+  {
+    "name": "TruckOperatorId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "TruckOperator",
+    "type": "STRING"
+  },
+  {
+    "name": "TruckOperatorCrew",
+    "type": "STRING"
+  },
+  {
+    "name": "LoadLocationCode",
+    "type": "STRING"
+  },
+  {
+    "name": "LoadLocation",
+    "type": "STRING"
+  },
+  {
+    "name": "LoadMaterial",
+    "type": "STRING"
+  },
+  {
+    "name": "CycleDistanceMetres",
+    "type": "INTEGER"
+  },
+  {
+    "name": "QueueLoadDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SpotTruckDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SpotLoaderDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "EmptyWeightTonnes",
+    "type": "INTEGER"
+  },
+  {
+    "name": "LoadWeightTonnes",
+    "type": "FLOAT"
+  },
+  {
+    "name": "WeightDistributionX",
+    "type": "INTEGER"
+  },
+  {
+    "name": "WeightDistributionY",
+    "type": "INTEGER"
+  },
+  {
+    "name": "LoadStartDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "LoadEndDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "LoadPositionDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "LoadPositionNorthMetres",
+    "type": "INTEGER"
+  },
+  {
+    "name": "LoadPositionEastMetres",
+    "type": "INTEGER"
+  },
+  {
+    "name": "LoadPositionElevMetres",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Loader1MachineId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Loader1",
+    "type": "STRING"
+  },
+  {
+    "name": "Loader1Model",
+    "type": "STRING"
+  },
+  {
+    "name": "Loader1Type",
+    "type": "STRING"
+  },
+  {
+    "name": "Loader1Tonnes",
+    "type": "FLOAT"
+  },
+  {
+    "name": "Loader1Passes",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Loader1OperatorId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Loader1Operator",
+    "type": "STRING"
+  },
+  {
+    "name": "Loader1OperatorCrew",
+    "type": "STRING"
+  },
+  {
+    "name": "DumpSpotDateTime",
+    "type": "STRING"
+  },
+  {
+    "name": "DumpStartDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "DumpEndDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "DumpMaterial",
+    "type": "STRING"
+  },
+  {
+    "name": "DumpLocation",
+    "type": "STRING"
+  },
+  {
+    "name": "DumpPositionDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "DumpPositionNorthMetres",
+    "type": "INTEGER"
+  },
+  {
+    "name": "DumpPositionEastMetres",
+    "type": "INTEGER"
+  },
+  {
+    "name": "DumpPositionElevMetres",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SystemStatus",
+    "type": "INTEGER"
+  },
+  {
+    "name": "TravelEmptyDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "TravelFullDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "QueueDumpDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "MaterialClass",
+    "type": "STRING"
+  },
+  {
+    "name": "MaterialDensity",
+    "type": "FLOAT"
+  },
+  {
+    "name": "RosteredCrew",
+    "type": "STRING"
+  },
+  {
+    "name": "FuelUsedLitres",
+    "type": "FLOAT"
+  },
+  {
+    "name": "TransmissionShiftCount",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SystemCreationMode",
+    "type": "STRING"
+  },
+  {
+    "name": "CycleDistanceEmptyMetres",
+    "type": "FLOAT"
+  },
+  {
+    "name": "CycleDistanceFullMetres",
+    "type": "FLOAT"
+  },
+  {
+    "name": "AutonomousCycle",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SmuStartCycle",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SmuEndCycle",
+    "type": "INTEGER"
+  },
+  {
+    "name": "RiseDistanceFull",
+    "type": "FLOAT"
+  },
+  {
+    "name": "RiseDistanceEmpty",
+    "type": "FLOAT"
+  },
+  {
+    "name": "FallDistanceFull",
+    "type": "FLOAT"
+  },
+  {
+    "name": "FallDistanceEmpty",
+    "type": "FLOAT"
+  },
+  {
+    "name": "MineModelTravelEmptyDurationSecs",
+    "type": "FLOAT"
+  },
+  {
+    "name": "MineModelTravelFullDurationSecs",
+    "type": "FLOAT"
+  },
+  {
+    "name": "DynamicCalculatedTravelEmptyDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "DynamicCalculatedTravelFullDurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "OCTMetres",
+    "type": "FLOAT"
+  },
+  {
+    "name": "OCTSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "run_id",
+    "type": "STRING"
+  }
+]

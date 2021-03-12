@@ -1,0 +1,19 @@
+[
+    {
+      "name": "run_id",
+      "type": "STRING"
+    },
+    {
+      "name": "file_name",
+      "type": "STRING"
+    },
+    {
+      "name": "load_datetime",
+      "type": "TIMESTAMP"
+    },
+    {
+      "name": "run_completed_datetime",
+      "type": "TIMESTAMP"
+    }
+  ]
+  

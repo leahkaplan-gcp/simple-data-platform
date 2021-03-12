@@ -1,0 +1,86 @@
+[
+  {
+    "name": "RecordId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SiteId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "SiteCode",
+    "type": "STRING"
+  },
+  {
+    "name": "SiteName",
+    "type": "STRING"
+  },
+  {
+    "name": "ActivityStartDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "ActivityEndDateTime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "DurationSecs",
+    "type": "INTEGER"
+  },
+  {
+    "name": "EqmtName",
+    "type": "STRING"
+  },
+  {
+    "name": "ResourceReference",
+    "type": "STRING"
+  },
+  {
+    "name": "EqmtGroup",
+    "type": "STRING"
+  },
+  {
+    "name": "EqmtType",
+    "type": "STRING"
+  },
+  {
+    "name": "OperatorId",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Operator",
+    "type": "STRING"
+  },
+  {
+    "name": "Crew",
+    "type": "STRING"
+  },
+  {
+    "name": "Activity",
+    "type": "STRING"
+  },
+  {
+    "name": "ActivityLocation",
+    "type": "STRING"
+  },
+  {
+    "name": "ActivityCategory",
+    "type": "STRING"
+  },
+  {
+    "name": "IsContinuousEvent",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Comment",
+    "type": "STRING"
+  },
+  {
+    "name": "SourceSystemComment",
+    "type": "STRING"
+  },
+  {
+    "name": "run_id",
+    "type": "STRING"
+  }
+]
