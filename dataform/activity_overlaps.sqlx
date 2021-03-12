@@ -1,0 +1,25 @@
+config {
+  type: "table"
+}
+
+WITH
+  cte AS (
+  SELECT
+    LAG(ActivityStartDateTime) OVER (PARTITION BY SiteId, EqmtName ORDER BY ActivityStartDateTime ) AS PreviousActivityStartDateTime,
+    LAG(ActivityEndDateTime) OVER (PARTITION BY SiteId, EqmtName ORDER BY ActivityStartDateTime ) AS PreviousActivityEndDateTime,
+    ActivityStartDateTime,
+    RecordId
+  FROM
+    `pwc-dataplatform.prod.stg_activity_history` a
+  INNER JOIN ${ref("current_run_uuid")} r on r.run_id = a.run_id
+)
+SELECT
+  RecordId
+FROM
+  cte
+WHERE
+  PreviousActivityStartDateTime > ActivityStartDateTime
+  OR PreviousActivityEndDateTime > ActivityStartDateTime
+
+
+
