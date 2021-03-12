@@ -1,0 +1,21 @@
+config {
+  type: "table"
+}
+
+select generate_uuid() as run_id
+
+post_operations {
+
+  -- create the batch run
+  update prod.runs
+    set run_id = (select run_id from  prod.current_run_uuid)
+  where run_id is null;
+
+  update prod.stg_activity_history
+    set run_id = (select run_id from  prod.current_run_uuid)
+  where run_id is null;
+
+  update prod.stg_truck_cycle
+     set run_id = (select run_id from  prod.current_run_uuid)
+   where run_id is null;
+}
