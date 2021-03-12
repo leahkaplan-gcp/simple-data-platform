@@ -1,0 +1,13 @@
+config {
+  type: "assertion"
+}
+
+-- select *
+-- from ${ref("source_table")}
+-- where value is null
+
+
+select * 
+  from ${ref("stg_activity_history_cleaned")}
+ where SiteCode = 'AAA'
+   and SiteName <> 'Mine A'
