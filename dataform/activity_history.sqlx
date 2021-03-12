@@ -1,0 +1,25 @@
+config {
+  type: "incremental",
+  uniqueKey: ["RecordId", "SiteId"]
+}
+
+
+SELECT
+  *
+from
+  ${ref("stg_activity_history_cleaned")}
+
+post_operations {
+  -- finish batch
+  update
+    prod.runs
+  set
+    run_completed_datetime = current_timestamp()
+  where
+    run_id = (
+      select
+        run_id
+      from
+        prod.current_run_uuid
+    )
+}
