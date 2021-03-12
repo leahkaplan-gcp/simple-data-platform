@@ -1,0 +1,18 @@
+config {
+  type: "table"
+}
+
+
+with cte as (
+    select TruckMachineId
+      from `pwc-dataplatform.prod.stg_truck_cycle`
+     where LoadWeightTonnes < 100 
+        or LoadWeightTonnes > 400
+)
+
+select t.TruckMachineId, avg(loadweighttonnes) as averageweight
+from prod.stg_truck_cycle t
+inner join cte c on c.TruckMachineId = t.TruckMachineId
+inner join ${ref("current_run_uuid")} u on u.run_id = t.run_id
+where loadweightTonnes between 100 and 400
+group by TruckMachineId
