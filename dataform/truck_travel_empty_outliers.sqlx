@@ -1,0 +1,19 @@
+config {
+  type: "table"
+}
+
+-- select *
+-- from 
+--   ${ref("table_name")} / schema.table_name
+-- read more about ref() in the documentation tab -->
+with cte as (
+  select TruckMachineId
+    from `pwc-dataplatform.prod.stg_truck_cycle`
+   where TravelEmptyDurationSecs = 0
+)
+select t.TruckMachineId, AVG(t.TravelEmptyDurationSecs) as averageEmptyTime 
+from prod.stg_truck_cycle t
+inner join cte c on c.TruckMachineId = t.TruckMachineId
+inner join ${ref("current_run_uuid")} u on u.run_id = t.run_id
+where t.TravelEmptyDurationSecs <> 0
+group by t.TruckMachineId
