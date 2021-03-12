@@ -1,0 +1,11 @@
+config {
+  type: "incremental",
+  uniqueKey: ["RecordId", "SiteId"]
+}
+
+-- select *
+-- from ${ref("source_table")}
+-- ${when(incremental(), `where timestamp > (select max(timestamp) from ${self()})`)}
+
+SELECT * 
+  from ${ref("stg_truck_cycle_cleaned")}
