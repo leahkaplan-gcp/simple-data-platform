@@ -1,0 +1,12 @@
+config {
+  type: "view"
+}
+
+-- select *
+-- from 
+--   ${ref("table_name")} / schema.table_name
+-- read more about ref() in the documentation tab -->
+select h.* 
+from `pwc-dataplatform.prod.stg_activity_history` h
+inner join ${ref("current_run_uuid")} r on r.run_id = h.run_id
+where h.RecordId not in (SELECT RecordId from ${ref("activity_overlaps")})
