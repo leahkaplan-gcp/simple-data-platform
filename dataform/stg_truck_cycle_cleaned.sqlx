@@ -1,0 +1,105 @@
+config {
+  type: "view"
+}
+
+-- select *
+-- from 
+--   ${ref("table_name")} / schema.table_name
+-- read more about ref() in the documentation tab -->
+
+SELECT
+  t.SiteId,
+  t.SiteCode,
+  t.SiteName,
+  t.ShiftStartDateTime,
+  t.RecordId,
+  t.CycleStartDateTime,
+  t.CycleEndDateTime,
+  t.TruckMachineId,
+  t.TruckMachine,
+  t.TruckMachineModel,
+  t.TruckMachineType,
+  t.TruckOperatorId,
+  t.TruckOperator,
+  t.TruckOperatorCrew,
+  t.LoadLocationCode,
+  t.LoadLocation,
+  t.LoadMaterial,
+  t.CycleDistanceMetres,
+  t.QueueLoadDurationSecs,
+  t.SpotTruckDurationSecs,
+  t.SpotLoaderDurationSecs,
+  t.EmptyWeightTonnes,
+  IFNULL(wo.averageweight,
+    t.LoadWeightTonnes) AS LoadWeightTonnes,
+  t.WeightDistributionX,
+  t.WeightDistributionY,
+  t.LoadStartDateTime,
+  t.LoadEndDateTime,
+  t.LoadPositionDateTime,
+  t.LoadPositionNorthMetres,
+  t.LoadPositionEastMetres,
+  t.LoadPositionElevMetres,
+  t.Loader1MachineId,
+  t.Loader1,
+  t.Loader1Model,
+  t.Loader1Type,
+  t.Loader1Tonnes,
+  t.Loader1Passes,
+  t.Loader1OperatorId,
+  t.Loader1Operator,
+  t.Loader1OperatorCrew,
+  t.DumpSpotDateTime,
+  t.DumpStartDateTime,
+  t.DumpEndDateTime,
+  t.DumpMaterial,
+  t.DumpLocation,
+  t.DumpPositionDateTime,
+  t.DumpPositionNorthMetres,
+  t.DumpPositionEastMetres,
+  t.DumpPositionElevMetres,
+  t.SystemStatus,
+  IFNULL(eo.averageEmptyTime,
+    t.TravelEmptyDurationSecs) AS TravelEmptyDurationSecs,
+  --sub IN the average travel timeIF   0 t.
+  TravelFullDurationSecs,
+  t.QueueDumpDurationSecs,
+  t.MaterialClass,
+  t.MaterialDensity,
+  t.RosteredCrew,
+  t.FuelUsedLitres,
+  t.TransmissionShiftCount,
+  t.SystemCreationMode,
+  t.CycleDistanceEmptyMetres,
+  t.CycleDistanceFullMetres,
+  t.AutonomousCycle,
+  t.SmuStartCycle,
+  t.SmuEndCycle,
+  t.RiseDistanceFull,
+  t.RiseDistanceEmpty,
+  t.FallDistanceFull,
+  t.FallDistanceEmpty,
+  t.MineModelTravelEmptyDurationSecs,
+  t.MineModelTravelFullDurationSecs,
+  t.DynamicCalculatedTravelEmptyDurationSecs,
+  t.DynamicCalculatedTravelFullDurationSecs,
+  t.OCTMetres,
+  t.OCTSecs,
+  t.run_id
+FROM
+  `pwc-dataplatform.prod.stg_truck_cycle` t
+INNER JOIN
+  ${ref("current_run_uuid")} r
+ON
+  r.run_id = t.run_id
+LEFT OUTER JOIN
+  ${ref("truck_travel_empty_outliers")} eo
+ON
+  eo.TruckMachineId = t.TruckMachineId
+  AND t.TravelEmptyDurationSecs = 0
+LEFT OUTER JOIN
+  ${ref("truck_weight_outliers")} wo
+ON
+  wo.TruckMachineId = t.TruckMachineId
+  AND t.LoadWeightTonnes BETWEEN 100
+  AND 400
